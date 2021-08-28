@@ -8,7 +8,5 @@ cs.connect(("LocalHost",9999))
 name = input("Enter your name")
 cs.send(bytes("from client","utf-8"))
 
-
-
 print(cs.recv(1024).decode())
 #should be decode before printing to avoide 'B' as prefix
