@@ -1,0 +1,22 @@
+import socket
+
+ss = socket.socket()
+#socket(IP v4/v6 , TCP/UDP)....N/W type and conn. type
+print("Socket created")
+
+#to make it server socket, need to bild socket with server
+
+ss.bind(("LocalHost",9999)) 
+#---Ip and port
+
+ss.listen(3) 
+#....number of client
+print("Waiting for client")
+
+while True:
+    cs, addr = ss.accept()
+    print("Connected with ", addr)
+    
+    cs.send(bytes("Mai server bol rha hu","utf-8"))
+    #Passed data should be in byte and in proper format
+    cs.close()
